@@ -221,3 +221,15 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+
+# project-specific
+data/
+*.csv
+*.xlsx
+.venv/
+spark-warehouse/
+metastore_db/
+derby.log
+# keep the governance CSV files (we want these on GitHub)
+!governance/*.csv
