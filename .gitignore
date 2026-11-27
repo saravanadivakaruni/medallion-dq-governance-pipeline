@@ -233,3 +233,4 @@ metastore_db/
 derby.log
 # keep the governance CSV files (we want these on GitHub)
 !governance/*.csv
+.DS_Store
