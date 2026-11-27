@@ -1,0 +1,47 @@
+# Soda Core checks (SodaCL) for the silver_staged table.
+# Check names MUST match the rule names in the dq_rules table, so results line up with Great Expectations.
+# Datasets used: silver_staged (the data) and ref_country (the approved country list).
+
+checks for silver_staged:
+  - row_count > 0:
+      name: row_count
+
+  - failed rows:
+      name: values_parseable
+      fail condition: _parse_ok = false
+
+  - missing_count(InvoiceNo) = 0:
+      name: invoice_no_not_null
+
+  - failed rows:
+      name: unit_price_positive
+      fail condition: UnitPrice <= 0
+
+  - failed rows:
+      name: invoice_date_in_range
+      fail condition: InvoiceDate < TIMESTAMP '2010-12-01 00:00:00' OR InvoiceDate > TIMESTAMP '2011-12-31 23:59:59'
+
+  - failed rows:
+      name: quantity_sign_matches_invoice_type
+      fail condition: _qty_sign_ok = false
+
+  - values in (Country) must exist in ref_country (country_name):
+      name: country_in_reference
+
+  - missing_count(CustomerID) = 0:
+      name: customer_id_not_null
+
+  - missing_count(Description) = 0:
+      name: description_not_null
+
+  - invalid_count(StockCode) = 0:
+      name: stock_code_pattern
+      valid regex: ^[0-9]{5}[A-Z]{0,2}$
+
+  - failed rows:
+      name: invoice_stock_key_unique
+      fail query: |
+        SELECT * FROM (
+          SELECT *, COUNT(*) OVER (PARTITION BY InvoiceNo, StockCode) AS key_count
+          FROM silver_staged) t
+        WHERE key_count > 1
