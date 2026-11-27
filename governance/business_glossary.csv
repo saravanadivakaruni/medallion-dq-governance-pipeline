@@ -1,0 +1,11 @@
+term,definition,domain,data_owner_role,data_steward_role,related_columns,status
+Invoice,"A commercial document for one customer order, identified by InvoiceNo",Sales,Head of Sales Operations,Sales Data Steward,InvoiceNo,Draft
+Cancellation Invoice,"An invoice whose number starts with C that reverses a previous sale; its quantity is negative",Sales,Head of Sales Operations,Sales Data Steward,InvoiceNo; Quantity,Draft
+Stock Code,"Product identifier: five digits optionally followed by one or two letters for a variant",Product,Head of Merchandising,Product Data Steward,StockCode,Draft
+Non-Product Code,"A stock code for a charge or adjustment such as postage or bank charges, not a sellable product",Product,Head of Merchandising,Product Data Steward,StockCode,Draft
+Customer ID,"Identifier of a registered customer; empty for guest checkouts",Customer,Head of Customer Experience,Customer Data Steward,CustomerID,Draft
+Unit Price,"Selling price per unit in the dataset currency; must be greater than zero on a sales line",Sales,Head of Sales Operations,Sales Data Steward,UnitPrice,Draft
+Quantity,"Number of units on an invoice line; positive for sales and negative for cancellations",Sales,Head of Sales Operations,Sales Data Steward,Quantity,Draft
+Invoice Date,"Date and time the invoice was raised",Sales,Head of Sales Operations,Sales Data Steward,InvoiceDate,Draft
+Line Revenue,"Quantity multiplied by UnitPrice for a sales line; excludes cancellations and non-product codes",Finance,Finance Data Owner,Finance Data Steward,Quantity; UnitPrice,Draft
+Country,"Customer country, standardized to the approved reference country list",Reference,Reference Data Owner,Reference Data Steward,Country,Draft

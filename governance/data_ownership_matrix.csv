@@ -1,0 +1,6 @@
+data_domain,dataset,data_owner_role,data_steward_role,data_custodian_role,main_consumers
+Sales,bronze_retail; silver_staged; silver_retail,Head of Sales Operations,Sales Data Steward,Data Engineering,Finance; Sales Analytics
+Sales,quarantine_retail,Head of Sales Operations,Sales Data Steward,Data Engineering,Data Quality Team
+Sales,gold_sales_monthly_by_country; gold_top_products,Head of Sales Operations,Sales Data Steward,Data Engineering,Finance; Management Reporting
+Data Quality,dq_rules; dq_check_results; dq_engine_comparison; gold_dq_scorecard,Head of Data Governance,Data Quality Lead,Data Engineering,All data owners
+Reference,ref_country,Reference Data Owner,Reference Data Steward,Data Engineering,Sales Analytics

@@ -1,0 +1,7 @@
+cde,why_critical,downstream_use,linked_dq_checks,minimum_pass_rate_pct
+InvoiceNo,Identifies every transaction and drives the cancellation logic,Revenue reporting and order counts,invoice_no_not_null; quantity_sign_matches_invoice_type,99
+UnitPrice,Direct input to revenue,Revenue reporting and top products,unit_price_positive,99
+Quantity,Direct input to revenue and stock movement,Revenue reporting and unit counts,quantity_sign_matches_invoice_type; values_parseable,99
+InvoiceDate,Drives all time-based reporting,Monthly sales and trend analysis,invoice_date_in_range; values_parseable,99
+StockCode,Links sales to products,Top products and product analysis,stock_code_pattern,98
+CustomerID,Links sales to customers and is personal-data sensitive,Customer analysis,customer_id_not_null,70

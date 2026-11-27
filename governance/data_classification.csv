@@ -1,0 +1,9 @@
+column,classification,personal_data_note,handling_rule
+InvoiceNo,Internal,No,Standard access
+StockCode,Internal,No,Standard access
+Description,Internal,No,Standard access
+Quantity,Internal,No,Standard access
+InvoiceDate,Internal,No,Standard access
+UnitPrice,Internal,No,Standard access
+CustomerID,Confidential,Pseudonymous identifier; treat as personal data if it can be linked to an individual,Restrict access and mask in non-production extracts
+Country,Internal,No,Standard access
